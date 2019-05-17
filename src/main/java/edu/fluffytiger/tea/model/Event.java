@@ -5,6 +5,7 @@ import lombok.NoArgsConstructor;
 import lombok.Setter;
 
 import javax.persistence.*;
+import java.time.LocalDate;
 import java.util.Set;
 
 @Entity
@@ -22,7 +23,11 @@ public class Event {
     @Setter @Getter
     private String place;
     @Setter @Getter
-    @ElementCollection(targetClass = String.class, fetch = FetchType.EAGER)
+    private LocalDate date;
+    @Setter @Getter
+    private boolean custom;
+    @Setter @Getter
+    @ElementCollection(targetClass = String.class, fetch = FetchType.LAZY)
     @CollectionTable(name = "emails_table")
     private Set<String> emails;
 }
