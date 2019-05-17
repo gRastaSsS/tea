@@ -1,6 +1,7 @@
 package edu.fluffytiger.tea.service;
 
 import edu.fluffytiger.tea.model.Event;
+import org.hibernate.Hibernate;
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.mail.MailException;
 import org.springframework.mail.javamail.JavaMailSender;
@@ -13,7 +14,7 @@ public class EmailService {
     private final HtmlMailBuilder htmlBuilder;
     private final JavaMailSender mailSender;
 
-    @Value("email.title.prefix")
+    @Value("${email.title.prefix}")
     private String prefix;
 
     public EmailService(HtmlMailBuilder htmlBuilder, JavaMailSender mailSender) {
@@ -23,6 +24,8 @@ public class EmailService {
 
     public void sendEvent(Event event) {
         MimeMessagePreparator preparator;
+
+        if (event.getEmails().isEmpty()) return;
 
         if (!event.isCustom()) {
             preparator = message -> {

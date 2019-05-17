@@ -13,14 +13,10 @@ import java.util.Arrays;
 
 @Component
 public class Runner implements ApplicationRunner {
-    private final EmailService email;
     private final EventService events;
-    private final EventRepository repository;
 
-    public Runner(EmailService email, EventService events, EventRepository repository) {
-        this.email = email;
+    public Runner(EventService events) {
         this.events = events;
-        this.repository = repository;
     }
 
     @Override
@@ -45,7 +41,5 @@ public class Runner implements ApplicationRunner {
                 LocalDate.MAX, false,
                 Arrays.asList(LocalDate.MAX, LocalDate.MIN)
         ));
-
-        System.out.println(repository.findAllPostgresNative(LocalDate.now()));
     }
 }

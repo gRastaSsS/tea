@@ -28,7 +28,7 @@ public class Event {
     @Setter @Getter
     private boolean custom;
     @Setter @Getter
-    @ElementCollection(targetClass = String.class, fetch = FetchType.LAZY)
+    @ElementCollection(targetClass = String.class, fetch = FetchType.EAGER)
     @CollectionTable(name = "emails_table")
     private Set<String> emails;
     @Setter @Getter

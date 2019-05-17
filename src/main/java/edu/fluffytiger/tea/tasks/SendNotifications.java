@@ -7,11 +7,11 @@ import edu.fluffytiger.tea.service.EmailService;
 import java.time.LocalDate;
 import java.util.Collection;
 
-public class CheckEvents implements Runnable {
+public class SendNotifications implements Runnable {
     private final EmailService emailService;
     private final EventRepository events;
 
-    public CheckEvents(EmailService emailService, EventRepository events) {
+    public SendNotifications(EmailService emailService, EventRepository events) {
         this.emailService = emailService;
         this.events = events;
     }
