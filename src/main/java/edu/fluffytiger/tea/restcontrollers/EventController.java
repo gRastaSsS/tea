@@ -29,10 +29,4 @@ public class EventController {
     public Event get(@PathVariable long id) {
         return this.service.get(id);
     }
-
-    public ResponseEntity<Object> bindEmail(long id, String email) {
-        this.service.bindEmail(id, email);
-        return ResponseEntity.ok()
-                .build();
-    }
 }

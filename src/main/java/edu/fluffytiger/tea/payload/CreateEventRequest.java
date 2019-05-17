@@ -1,19 +1,24 @@
 package edu.fluffytiger.tea.payload;
 
-import com.fasterxml.jackson.annotation.JsonFormat;
+import lombok.AllArgsConstructor;
 import lombok.Getter;
 import lombok.Setter;
 
 import java.time.LocalDate;
-import java.util.Date;
-import java.util.Set;
+import java.util.List;
 
+@AllArgsConstructor
 public class CreateEventRequest {
-    @Setter
-    @Getter
+    @Setter @Getter
     private String name;
     @Setter @Getter
     private String description;
     @Setter @Getter
     private String place;
+    @Setter @Getter
+    private LocalDate date;
+    @Setter @Getter
+    private boolean custom;
+    @Setter @Getter
+    private List<LocalDate> notifyAt;
 }

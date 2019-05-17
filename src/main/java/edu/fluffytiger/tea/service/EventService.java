@@ -26,18 +26,17 @@ public class EventService {
 
     public Event create(CreateEventRequest request) {
         Event event = new Event();
-        System.out.println(request);
         event.setName(request.getName());
         event.setDescription(request.getDescription());
         event.setPlace(request.getPlace());
+        event.setDate(request.getDate());
+        event.setCustom(request.isCustom());
+        event.setNotifyAt(request.getNotifyAt());
         this.events.save(event);
         return event;
     }
 
     public void delete(long id) {
         this.events.deleteById(id);
-    }
-
-    public void bindEmail(long id, String email) {
     }
 }

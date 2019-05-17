@@ -6,6 +6,7 @@ import lombok.Setter;
 
 import javax.persistence.*;
 import java.time.LocalDate;
+import java.util.List;
 import java.util.Set;
 
 @Entity
@@ -30,4 +31,8 @@ public class Event {
     @ElementCollection(targetClass = String.class, fetch = FetchType.LAZY)
     @CollectionTable(name = "emails_table")
     private Set<String> emails;
+    @Setter @Getter
+    @ElementCollection(targetClass = LocalDate.class, fetch = FetchType.LAZY)
+    @CollectionTable(name = "notify_dates_table")
+    private List<LocalDate> notifyAt;
 }

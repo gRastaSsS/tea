@@ -31,12 +31,6 @@ public class AdminController {
         return "redirect:/admin";
     }
 
-    @RequestMapping(method = RequestMethod.POST, value = "events/email/{id}")
-    public String bindEmail(@PathVariable long id, @RequestBody String email) {
-        this.service.bindEmail(id, email);
-        return "redirect:/admin";
-    }
-
     @RequestMapping(method = RequestMethod.DELETE, value = "events/{id}")
     public String deleteEvent(@PathVariable long id) {
         this.service.delete(id);
