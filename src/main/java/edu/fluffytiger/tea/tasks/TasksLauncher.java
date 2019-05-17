@@ -24,7 +24,7 @@ public class TasksLauncher implements ApplicationRunner {
     public void run(ApplicationArguments args) {
         this.scheduler.schedule(
                 new SendNotifications(emailService, events),
-                new CronTrigger("0 * * * * *")
+                new CronTrigger("0 0 5 * * ?")
         );
     }
 }

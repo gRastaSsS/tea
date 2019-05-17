@@ -10,5 +10,5 @@ import java.util.Collection;
 public interface EventRepository extends CrudRepository<Event, Long> {
     @Query(value = "SELECT DISTINCT * FROM events_table INNER JOIN (SELECT * FROM NOTIFY_DATES_TABLE WHERE notify_at = SELECT to_date(?1,'YYYY-MM-DD')) ON id = event_id",
             nativeQuery = true)
-    Collection<Event> findAllPostgresNative(LocalDate date);
+    Collection<Event> findAllH2Native(LocalDate date);
 }

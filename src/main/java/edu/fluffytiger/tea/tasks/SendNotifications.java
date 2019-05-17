@@ -22,7 +22,7 @@ public class SendNotifications implements Runnable {
 
     @Override
     public void run() {
-        Collection<Event> events = this.events.findAllPostgresNative(LocalDate.now());
+        Collection<Event> events = this.events.findAllH2Native(LocalDate.now());
 
         for (Event event : events) {
             this.emailService.sendEvent(event);
