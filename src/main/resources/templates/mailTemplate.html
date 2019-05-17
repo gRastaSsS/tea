@@ -2,7 +2,19 @@
 <html lang="en" xmlns:th="http://www.thymeleaf.org">
 <head></head>
 <body>
-<h1>Header</h1>
-<span th:text="${message}"></span>
+
+<div>
+    <h1>Example Email</h1>
+
+    <div>
+        <h3 th:text="${event.getName()}"></h3>
+        <span th:text="${event.getPlace()}"></span>
+        <p th:text="${event.getDescription()}"></p>
+        <span th:text="${event.getDate()}"></span>
+    </div>
+</div>
+
+
+
 </body>
 </html>

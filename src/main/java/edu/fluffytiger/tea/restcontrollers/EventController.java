@@ -3,11 +3,10 @@ package edu.fluffytiger.tea.restcontrollers;
 import edu.fluffytiger.tea.model.Event;
 import edu.fluffytiger.tea.payload.CreateEventRequest;
 import edu.fluffytiger.tea.service.EventService;
-import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
 @RestController
-@RequestMapping(value = "events")
+@RequestMapping(value = "api")
 public class EventController {
     private final EventService service;
 
@@ -18,6 +17,11 @@ public class EventController {
     @RequestMapping(method = RequestMethod.POST)
     public Event create(@RequestBody CreateEventRequest request) {
         return this.service.create(request);
+    }
+
+    @RequestMapping(method = RequestMethod.DELETE)
+    public void delete(@PathVariable long id) {
+        this.service.delete(id);
     }
 
     @RequestMapping(method = RequestMethod.GET)

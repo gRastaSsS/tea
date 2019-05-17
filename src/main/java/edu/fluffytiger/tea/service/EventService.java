@@ -31,6 +31,7 @@ public class EventService {
         event.setPlace(request.getPlace());
         event.setDate(request.getDate());
         event.setCustom(request.isCustom());
+        event.setEmails(request.getEmails());
         event.setNotifyAt(request.getNotifyAt());
         this.events.save(event);
         return event;

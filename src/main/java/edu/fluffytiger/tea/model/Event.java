@@ -32,7 +32,7 @@ public class Event {
     @CollectionTable(name = "emails_table")
     private Set<String> emails;
     @Setter @Getter
-    @ElementCollection(targetClass = LocalDate.class, fetch = FetchType.LAZY)
+    @ElementCollection(targetClass = LocalDate.class, fetch = FetchType.EAGER)
     @CollectionTable(name = "notify_dates_table")
     private List<LocalDate> notifyAt;
 }

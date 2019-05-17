@@ -10,6 +10,8 @@ import org.springframework.stereotype.Component;
 
 import java.time.LocalDate;
 import java.util.Arrays;
+import java.util.Collections;
+import java.util.HashSet;
 
 @Component
 public class Runner implements ApplicationRunner {
@@ -25,6 +27,7 @@ public class Runner implements ApplicationRunner {
                 "name0",
                 "desc", "place",
                 LocalDate.MAX, false,
+                new HashSet<>(Arrays.asList("dead.gerasim@gmail.com", "st054633@student.spbu.ru")),
                 Arrays.asList(LocalDate.MAX, LocalDate.MIN)
         ));
 
@@ -32,6 +35,7 @@ public class Runner implements ApplicationRunner {
                 "name1",
                 "desc", "place",
                 LocalDate.now(), false,
+                new HashSet<>(Arrays.asList("dead.gerasim@gmail.com", "st054633@student.spbu.ru")),
                 Arrays.asList(LocalDate.now(), LocalDate.MIN)
         ));
 
@@ -39,6 +43,7 @@ public class Runner implements ApplicationRunner {
                 "name2",
                 "desc", "place",
                 LocalDate.MAX, false,
+                new HashSet<>(Arrays.asList("dead.gerasim@gmail.com")),
                 Arrays.asList(LocalDate.MAX, LocalDate.MIN)
         ));
     }

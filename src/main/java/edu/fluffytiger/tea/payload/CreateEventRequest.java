@@ -6,6 +6,7 @@ import lombok.Setter;
 
 import java.time.LocalDate;
 import java.util.List;
+import java.util.Set;
 
 @AllArgsConstructor
 public class CreateEventRequest {
@@ -19,6 +20,8 @@ public class CreateEventRequest {
     private LocalDate date;
     @Setter @Getter
     private boolean custom;
+    @Setter @Getter
+    private Set<String> emails;
     @Setter @Getter
     private List<LocalDate> notifyAt;
 }
